@@ -9,8 +9,8 @@ export WORKON_HOME=${HOME}/virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 source /usr/local/share/python/virtualenvwrapper_lazy.sh
 
-export ANDROID_SDK=/Users/krl/Downloads/adt-bundle-mac-x86_64-20130522/sdk
-export ANDROID_TOOLCHAIN=/Users/krl/Documents/android-ndk
-export PATH=${PATH}:/Users/krl/Downloads/adt-bundle-mac-x86_64-20130522/sdk/platform-tools
-
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+if [ -f .work_profile ]; then
+    source .work_profile
+fi
