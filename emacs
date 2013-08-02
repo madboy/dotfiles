@@ -107,3 +107,6 @@ Position the cursor at its beginning, according to the current mode."
 
 (show-paren-mode t)
 ;; (setq vc-follow-symlinks t)
+
+(require 'multi-term)
+(setq multi-term-program "/bin/bash")
