@@ -14,3 +14,5 @@ source /usr/local/share/python/virtualenvwrapper_lazy.sh
 if [ -f .work_profile ]; then
     source .work_profile
 fi
+
+export PS1='\h:\W \u\$ '
