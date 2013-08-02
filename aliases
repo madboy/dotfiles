@@ -1,0 +1,10 @@
+alias l='ls -FGh'
+alias ll='l -l'
+alias la='l -a'
+alias crontab='VIM_CRONTAB=true crontab'
+
+alias agu='sudo apt-get update'
+alias agi='sudo apt-get install'
+alias ags='apt-cache search'
+alias agr='sudo apt-get remove'
+alias agg='sudo apt-get upgrade'

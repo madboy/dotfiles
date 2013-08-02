@@ -1,7 +1,6 @@
-alias l='ls -FGh'
-alias ll='l -l'
-alias la='l -a'
-alias crontab='VIM_CRONTAB=true crontab'
+if [ -f .aliases ]; then
+    source .aliases
+fi
 
 export PATH=/usr/local/bin:${PATH}
 export PATH=${PATH}:/usr/local/share/python # for pip executables
