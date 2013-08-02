@@ -110,3 +110,5 @@ Position the cursor at its beginning, according to the current mode."
 
 (require 'multi-term)
 (setq multi-term-program "/bin/bash")
+
+(setq require-final-newline t)
