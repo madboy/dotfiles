@@ -106,9 +106,11 @@ Position the cursor at its beginning, according to the current mode."
 (global-set-key (kbd "M-:") 'end-of-buffer)
 
 (show-paren-mode t)
-;; (setq vc-follow-symlinks t)
+(setq vc-follow-symlinks t)
 
 (require 'multi-term)
 (setq multi-term-program "/bin/bash")
 
 (setq require-final-newline t)
+(global-set-key [?\M-§] 'other-frame)
+(global-set-key "\C-o" 'other-window)
