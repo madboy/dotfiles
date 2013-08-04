@@ -8,3 +8,6 @@ alias agi='sudo apt-get install'
 alias ags='apt-cache search'
 alias agr='sudo apt-get remove'
 alias agg='sudo apt-get upgrade'
+
+alias love="/Applications/love.app/Contents/MacOS/love"
+
