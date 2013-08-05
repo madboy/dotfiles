@@ -3,13 +3,13 @@
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
-;;(package-refresh-contents)
+;; (package-refresh-contents)
 
 ;; install these packages if they are not there.
 (defvar my-packages '(color-theme
                       color-theme-solarized
-		      flymake-python-pyflakes
-		      pyflakes))
+		      lua-mode
+		      puppet-mode))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
