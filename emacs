@@ -114,3 +114,12 @@ Position the cursor at its beginning, according to the current mode."
 (setq require-final-newline t)
 (global-set-key [?\M-§] 'other-frame)
 (global-set-key "\C-o" 'other-window)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
+(setq confirm-kill-emacs 'y-or-n-p)
+
+;; Remember tags commands
+;; M-. <RET> Jump to the tag underneath the cursor
+;; M-. <tag> <RET> Search for a particular tag
+;; C-u M-. Find the next definition for the last tag
+;; M-* Pop back to where you previously invoked "M-."
