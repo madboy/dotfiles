@@ -9,7 +9,8 @@
 (defvar my-packages '(color-theme
                       color-theme-solarized
 		      lua-mode
-		      puppet-mode))
+		      puppet-mode
+		      switch-window))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -123,3 +124,9 @@ Position the cursor at its beginning, according to the current mode."
 ;; M-. <tag> <RET> Search for a particular tag
 ;; C-u M-. Find the next definition for the last tag
 ;; M-* Pop back to where you previously invoked "M-."
+
+;; Installed magit from source, branch maint, since
+;; the package in marmalade didn't work
+(add-to-list 'load-path "~/Downloads/magit")
+(require 'magit)
+(global-set-key "\C-xg" 'magit-status)
