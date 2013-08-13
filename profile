@@ -15,3 +15,5 @@ if [ -f .work_profile ]; then
 fi
 
 export PS1='\h:\W \u\$ '
+
+source ${HOME}/.git-completion.bash
