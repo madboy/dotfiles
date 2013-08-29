@@ -1,3 +1,100 @@
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" The bundles you install will be listed here
+" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'tpope/vim-fugitive'
+Bundle 'scrooloose/nerdtree'
+" Bundle 'klen/python-mode'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'vibrantink'
+Bundle 'bling/vim-airline'
+
+" Powerline setup
+" set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+" set laststatus=2
+
+" NerdTree setup
+map <F2> :NERDTreeToggle<CR>
+
+" jedi-vim
+" Use <leader>l to toggle display of whitespace
+nmap <leader>l :set list!<CR>
+" And set some nice chars to do it with
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+"set listchars=tab:»\ ,eol:¬
+
+" automatically change window's cwd to file's dir
+set autochdir
+
+" I'm prefer spaces to tabs
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" more subtle popup colors
+if has ('gui_running')
+    highlight Pmenu guibg=#cccccc gui=bold
+endif
+
+" Python-mode
+" Activate rope
+" Keys:
+" K             Show python docs
+" <Ctrl-Space>  Rope autocomplete
+" <Ctrl-c>g     Rope goto definition
+" <Ctrl-c>d     Rope show documentation
+" <Ctrl-c>f     Rope find occurrences
+" <Leader>b     Set, unset breakpoint (g:pymode_breakpoint enabled)
+" [[            Jump on previous class or function (normal, visual, operator modes)
+" ]]            Jump on next class or function (normal, visual, operator modes)
+" [M            Jump on previous class or method (normal, visual, operator modes)
+" ]M            Jump on next class or method (normal, visual, operator modes)
+let g:pymode_rope = 0
+
+" Documentation
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+
+"Linting
+" let g:pymode_lint = 1
+" let g:pymode_lint_checker = "pyflakes,pep8"
+" Auto check on save
+" let g:pymode_lint_write = 1
+
+" Support virtualenv
+let g:pymode_virtualenv = 1
+
+" Enable breakpoints plugin
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_key = '<leader>b'
+
+" syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+" Don't autofold code
+let g:pymode_folding = 0
+
+filetype plugin indent on
+
+augroup vimrc_autocmds
+    autocmd!
+    " highlight characters past column 120
+    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
+    autocmd FileType python match Excess /\%120v.*/
+    autocmd FileType python set nowrap
+augroup END
+
+" rest
 set nocompatible
 set hidden
 syntax on
@@ -29,7 +126,7 @@ set showcmd
 " Use the default filetype settings, so that mail gets 'tw' set to 72,
 " 'cindent' is on in C files, etc.
 " Also load indent files, to automatically do language-dependent indenting.
-filetype plugin indent on
+" filetype plugin indent on
 " use emacs-style tab completion when selecting files, etc
 set wildmode=longest,list
 " make tab completion for files/buffers act like bash
@@ -39,7 +136,7 @@ let mapleader=","
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+" :set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MISC KEY MAPS
@@ -66,10 +163,18 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
-set tags=~/mytags
+set tags=~/vimtags
 noremap <c-g> g<c-]>
 
 if $VIM_CRONTAB == "true"
     set nobackup
     set nowritebackup
 endif
+
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions+=LlRrb
+set guioptions-=LlRrb
+
+colorscheme vibrantink
+autocmd BufNewFile,BufRead *.json set ft=javascript
