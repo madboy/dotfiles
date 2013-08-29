@@ -130,3 +130,5 @@ Position the cursor at its beginning, according to the current mode."
 (add-to-list 'load-path "~/Downloads/magit")
 (require 'magit)
 (global-set-key "\C-xg" 'magit-status)
+
+(require 'switch-window)
