@@ -127,8 +127,8 @@ Position the cursor at its beginning, according to the current mode."
 
 ;; Installed magit from source, branch maint, since
 ;; the package in marmalade didn't work
-(add-to-list 'load-path "~/Downloads/magit")
-(require 'magit)
-(global-set-key "\C-xg" 'magit-status)
+;; (add-to-list 'load-path "~/Downloads/magit")
+;; (require 'magit)
+;; (global-set-key "\C-xg" 'magit-status)
 
 (require 'switch-window)
