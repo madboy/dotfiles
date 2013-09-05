@@ -61,14 +61,6 @@
 
 (defun krl-python-mode ()
   (electric-indent-mode nil)
-  (setq tab-always-indent t))
+  (setq-local tab-always-indent t))
 
 (add-hook 'python-mode-hook 'krl-python-mode)
-
-(defun krl-evil-mode ()
-  (local-set-key (kbd "M-p") 'switch-to-buffer)
-  (local-set-key (kbd "M-o") 'other-window)
-  (local-set-key (kbd "M-x") 'execute-extended-command)
-  )
-
-(add-hook 'evil-mode-hook 'krl-evil-mode)
