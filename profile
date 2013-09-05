@@ -2,6 +2,10 @@ if [ -f .aliases ]; then
     source .aliases
 fi
 
+if [ -f .bashrc ]; then
+    source .bashrc
+fi
+
 export PATH=/usr/local/bin:${PATH}
 export PATH=${PATH}:/usr/local/share/python # for pip executables
 export PATH=${PATH}:${HOME}/bin
@@ -17,3 +21,4 @@ fi
 export PS1='\h:\W \u\$ '
 
 source ${HOME}/.git-completion.bash
+
