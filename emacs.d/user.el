@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 ;; My customizations
 
 ;; OSX stuff
@@ -64,3 +65,30 @@
   (setq-local tab-always-indent t))
 
 (add-hook 'python-mode-hook 'krl-python-mode)
+
+(require 'evil)
+
+;; change mode-line color by evil state
+(lexical-let ((default-color (cons (face-background 'mode-line)
+                                   (face-foreground 'mode-line))))
+  (add-hook 'post-command-hook
+            (lambda ()
+              (let ((color (cond ((minibufferp) default-color)
+                                 ((evil-insert-state-p) '("#e80000" . "#ffffff"))
+                                 ((evil-emacs-state-p)  '("#444488" . "#ffffff"))
+                                 ((buffer-modified-p)   '("#006fa0" . "#ffffff"))
+                                 (t default-color))))
+                (set-face-background 'mode-line (car color))
+                (set-face-foreground 'mode-line (cdr color))))))
+
+(define-key evil-normal-state-map (kbd ";") 'evil-ex)
+(define-key evil-visual-state-map (kbd ";") 'evil-ex)
+(define-key evil-motion-state-map (kbd ";") 'evil-ex)
+
+(define-key evil-normal-state-map " 1" 'delete-other-windows)
+(define-key evil-normal-state-map " 2" 'split-window-below)
+(define-key evil-normal-state-map " 3" 'split-window-right)
+(define-key evil-normal-state-map " 0" 'delete-window)
+
+(define-key evil-normal-state-map " o" 'other-window)
+(evil-mode 1)
