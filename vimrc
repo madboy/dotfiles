@@ -150,10 +150,10 @@ map Q <Nop>
 set nu
 
 "quick pairs
-imap <leader>' ''<ESC>i
-imap <leader>" ""<ESC>i
-imap <leader>( ()<ESC>i
-imap <leader>[ []<ESC>i
-imap <leader>{ {}<ESC>i
+"imap <leader>' ''<ESC>i
+"imap <leader>" ""<ESC>i
+"imap <leader>( ()<ESC>i
+"imap <leader>[ []<ESC>i
+"imap <leader>{ {}<ESC>i
 
 set noshowmode
