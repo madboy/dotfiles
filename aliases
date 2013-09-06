@@ -1,6 +1,7 @@
 alias l='ls -FGh'
 alias ll='l -l'
 alias la='l -a'
+alias lla='ll -a'
 alias crontab='VIM_CRONTAB=true crontab'
 
 alias agu='sudo apt-get update'
