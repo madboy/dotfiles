@@ -91,4 +91,7 @@
 (define-key evil-normal-state-map " 0" 'delete-window)
 
 (define-key evil-normal-state-map " o" 'other-window)
+(define-key evil-normal-state-map " k" 'kill-buffer)
+(define-key evil-normal-state-map " p" 'switch-to-buffer)
+
 (evil-mode 1)

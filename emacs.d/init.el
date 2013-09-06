@@ -10,7 +10,8 @@
 
 (defvar my-packages '(color-theme
                       color-theme-monokai
-		      command-frequency)
+		      command-frequency
+		      evil)
   "A list of packages we always want to have installed")
 
 (dolist (p my-packages)
