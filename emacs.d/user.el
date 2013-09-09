@@ -47,7 +47,6 @@
 (color-theme-monokai)
 
 (setq tab-always-indent 'complete)
-(electric-indent-mode t)
 
 (setq-default command-frequency-table-file (concat user-emacs-directory "frequencies"))
 (require 'command-frequency)
@@ -61,7 +60,6 @@
 (add-hook 'puppet-mode-hook 'krl-puppet-mode)
 
 (defun krl-python-mode ()
-  (electric-indent-mode nil)
   (setq-local tab-always-indent t))
 
 (add-hook 'python-mode-hook 'krl-python-mode)
