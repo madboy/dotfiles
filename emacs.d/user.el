@@ -92,4 +92,6 @@
 (define-key evil-normal-state-map " k" 'kill-buffer)
 (define-key evil-normal-state-map " p" 'switch-to-buffer)
 
+(evil-ex-define-cmd "o[ther]" 'other-window)
+(evil-ex-define-cmd "p[witch]" 'switch-to-buffer)
 (evil-mode 1)
