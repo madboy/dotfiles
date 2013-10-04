@@ -44,7 +44,7 @@
                                                "backups"))))
 
 (require 'color-theme)
-(color-theme-monokai)
+;;(color-theme-monokai)
 
 (setq tab-always-indent 'complete)
 
@@ -94,4 +94,5 @@
 
 (evil-ex-define-cmd "o[ther]" 'other-window)
 (evil-ex-define-cmd "p[witch]" 'switch-to-buffer)
+(evil-ex-define-cmd "x[tended]" 'execute-extended-command)
 (evil-mode 1)
