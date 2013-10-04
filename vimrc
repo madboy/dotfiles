@@ -158,3 +158,4 @@ set nu
 "imap <leader>{ {}<ESC>i
 
 set noshowmode
+nnoremap ; :
