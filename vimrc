@@ -130,3 +130,5 @@ map <leader>s <esc>:w<CR>
 
 " Disable Ex mode
 map Q <Nop>
+
+noremap <s-u> <c-r>
