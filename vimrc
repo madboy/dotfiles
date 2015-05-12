@@ -76,3 +76,16 @@ function! InsertTabWrapper()
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
+
+" Go back to previous buffer
+nnoremap <F2> :b#<CR>
+
+" Clear highlighting until next search
+" :noh
+nnoremap <F3> :noh<CR>
+
+" Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
