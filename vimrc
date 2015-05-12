@@ -1,78 +1,71 @@
-filetype on
+set nocompatible
 filetype off
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-" let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-
-" The bundles you install will be listed here
-Plugin 'scrooloose/nerdtree'
-Plugin 'vibrantink'
 Plugin 'bling/vim-airline'
-Plugin 'wincent/Command-T'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'rust-lang/rust.vim'
 
-call vundle#end()
-filetype plugin indent on
+call vundle#end()            " required
+filetype plugin indent on    " required
 
-" automatically change window's cwd to file's dir
-set autochdir
-
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-
-" more subtle popup colors
-if has ('gui_running')
-    highlight Pmenu guibg=#cccccc gui=bold
-    set guioptions-=T
-    set guioptions+=e
-    set t_Co=256
-    set guitablabel=%M\ %t
-endif
-
-" rest
-set hidden
-syntax on
-set autoindent
+" for airline
 set laststatus=2
-set showmatch
-set incsearch
-set hlsearch
 
-" make searches case-sensitive only if they contain upper-case characters
-set ignorecase smartcase
 
-" highlight current line
-set cursorline
-
-"set cmdheight=2
-set switchbuf=useopen
-set showtabline=2
-set winwidth=79
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-" allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-" display incomplete commands
+syntax on
+filetype plugin indent on
+set autoindent
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab
+
+set paste
+set ruler
+
+set hlsearch
+set incsearch
+set ignorecase smartcase
+
+set mouse=a
+
+set nobackup
+
 set showcmd
-
-" use emacs-style tab completion when selecting files, etc
+nnoremap ; :
 set wildmode=longest,list
-" make tab completion for files/buffers act like bash
-set wildmenu
 
+" Mastering Vim with Conway
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MULTIPURPOSE TAB KEY
-" " Indent if we're at the beginning of a line. Else, do completion.
-" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <silent> <RIGHT>         :cnext<CR>
+nmap <silent> <UP>            :cnf<CR><C-G>
+nmap <silent> <LEFT>          :cprev<CR>
+nmap <silent> <DOWN>          :cpf<CR><C-G>
+
+"Only apply to .txt files...
+augroup HelpInTabs
+    autocmd!
+    autocmd BufEnter  *.txt   call HelpInNewTab()
+augroup END
+
+"Only apply to help files...
+function! HelpInNewTab ()
+    if &buftype == 'help' "&& g:help_in_tabs
+        "Convert the help window to a tab...
+        execute "normal \<C-W>T"
+    endif
+endfunction
+
+if has ('gui_running')
+    set background=dark
+    colorscheme solarized
+    set guifont=Menlo:h13
+endif
+
 function! InsertTabWrapper()
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
@@ -83,49 +76,3 @@ function! InsertTabWrapper()
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
-
-set tags=~/vimtags
-noremap <c-g> g<c-]>
-
-if $VIM_CRONTAB == "true"
-    set nobackup
-    set nowritebackup
-endif
-
-colorscheme vibrantink
-autocmd BufNewFile,BufRead *.json set ft=javascript
-
-set gdefault
-command! W w " Bind :Q to :q
-command! Q q " Bind :Q to :q
-
-set nu
-
-set noshowmode
-
-"
-" Remap keys
-"
-let mapleader=","
-
-nnoremap ; :
-
-" Go back to previous buffer
-nnoremap <F2> :b#<CR>
-
-" Clear highlighting until next search
-" :noh
-nnoremap <F3> :noh<CR>
-
-" Move around splits with <c-hjkl>
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-
-map <leader>s <esc>:w<CR>
-
-" Disable Ex mode
-map Q <Nop>
-
-noremap <s-u> <c-r>
