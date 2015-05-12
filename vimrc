@@ -117,9 +117,6 @@ nnoremap <F2> :b#<CR>
 " :noh
 nnoremap <F3> :noh<CR>
 
-" NerdTree setup
-map <F4> :NERDTreeToggle<CR>
-
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
