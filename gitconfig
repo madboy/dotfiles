@@ -1,0 +1,10 @@
+[user]
+	email = k.lindberg@gmail.com
+	name = Kristofer Lindberg
+[core]
+	editor = vim
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
