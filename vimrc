@@ -24,7 +24,7 @@ set softtabstop=4
 set tabstop=4
 set expandtab
 
-set paste
+" set paste " do not set paste by default, breaks indentation and tab-complete
 set ruler
 
 set hlsearch
@@ -61,6 +61,10 @@ function! HelpInNewTab ()
 endfunction
 
 if has ('gui_running')
+    set guioptions-=T
+    set guioptions+=e
+    set t_Co=256
+    set guitablabel=%M\ %t
     set background=dark
     colorscheme solarized
     set guifont=Menlo:h13

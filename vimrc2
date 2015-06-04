@@ -9,10 +9,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " The bundles you install will be listed here
-Plugin 'scrooloose/nerdtree'
-Plugin 'vibrantink'
 Plugin 'bling/vim-airline'
-Plugin 'wincent/Command-T'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
@@ -33,6 +31,9 @@ if has ('gui_running')
     set guioptions+=e
     set t_Co=256
     set guitablabel=%M\ %t
+    set background=dark
+    colorscheme solarized
+    set guifont=Monospace\ 14
 endif
 
 " rest
@@ -93,7 +94,6 @@ if $VIM_CRONTAB == "true"
     set nowritebackup
 endif
 
-colorscheme vibrantink
 autocmd BufNewFile,BufRead *.json set ft=javascript
 
 set gdefault
@@ -134,5 +134,5 @@ map Q <Nop>
 
 noremap <s-u> <c-r>
 
-" Map a build combination 
+" Map a build combination
 " map <C-b> :w<CR>:! nosetests<CR>
