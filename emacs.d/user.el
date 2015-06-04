@@ -95,4 +95,6 @@
 (evil-ex-define-cmd "o[ther]" 'other-window)
 (evil-ex-define-cmd "p[witch]" 'switch-to-buffer)
 (evil-ex-define-cmd "x[tended]" 'execute-extended-command)
-(evil-mode 1)
+(evil-mode -1)
+
+(global-set-key (kbd "C-c e") 'evil-mode)
