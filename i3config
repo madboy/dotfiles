@@ -155,7 +155,7 @@ exec --no-startup-id nm-applet
 # exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 #
 # agi gnome-settings-daemon
-# exec /usr/bin/gnome-settings-daemon
+exec /usr/bin/gnome-settings-daemon
 exec xautolock -time 5 -locker i3lock
 
 bindsym $mod+Shift+i exec /home/krl/bin/change_keyboard_layout.sh
@@ -163,4 +163,22 @@ bindsym $mod+Shift+y exec /home/krl/bin/deactivate_touchpad.sh
 # exec_always --no-startup-id xinput set-prop 11 "Device Enabled" 0
 
 # exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
-
+#
+# get keys with: xmodmap -pke
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pactl list short sinks | grep RUNNING | awk '{print $1}') +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pactl list short sinks | grep RUNNING | awk '{print $1}') -5% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute $(pactl list short sinks | grep RUNNING | awk '{print $1}') toggle # mute sound
+##
+## # Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+#
+# # Touchpad controls
+# bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+#
+# # Media player controls
+# bindsym XF86AudioPlay exec playerctl play
+# bindsym XF86AudioPause exec playerctl pause
+# bindsym XF86AudioNext exec playerctl next
+# bindsym XF86AudioPrev exec playerctl previous
