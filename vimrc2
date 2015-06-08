@@ -136,3 +136,4 @@ noremap <s-u> <c-r>
 
 " Map a build combination
 " map <C-b> :w<CR>:! nosetests<CR>
+vmap <s-y> "+y
