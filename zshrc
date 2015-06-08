@@ -39,6 +39,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/home/krl/bin
+export PATH=$PATH:/usr/local/go/bin
 
 alias ls='ls -Fh --color'
 alias l='ls'

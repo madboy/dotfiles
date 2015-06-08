@@ -155,7 +155,7 @@ exec --no-startup-id nm-applet
 # exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 #
 # agi gnome-settings-daemon
-exec /usr/bin/gnome-settings-daemon
+# exec /usr/bin/gnome-settings-daemon
 exec xautolock -time 5 -locker i3lock
 
 bindsym $mod+Shift+i exec /home/krl/bin/change_keyboard_layout.sh
