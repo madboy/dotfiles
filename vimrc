@@ -40,17 +40,17 @@ set wildmode=longest,list
 set wildmenu
 
 au FileType gitcommit set tw=55
- 
+
 set ignorecase
 set smartcase
 set hlsearch
 set incsearch
- 
+
 " show matching brackets
 set showmatch
 
 set noerrorbells
- 
+
 " Set extra options when running in GUI mode
 if has("gui_running")
     set guioptions-=T
@@ -61,20 +61,20 @@ if has("gui_running")
     colorscheme solarized
     set guifont:Menlo:h13
 endif
- 
+
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
 " overwrites pageup
 " map <C-b> :w<CR>:! nosetests<CR>
- 
+
 " Clear highlighting until next search
 " :noh
 nnoremap <F3> :noh<CR>
- 
+
 " Go back to previous buffer
 nnoremap <F2> :b#<CR>
- 
+
 let mapleader=","
 nnoremap ; :
 
