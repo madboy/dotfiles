@@ -29,3 +29,5 @@ fi
 
 [[ -s /usr/local/etc/bash_completion.d/go-completion.bash ]] && . /usr/local/etc/bash_completion.d/go-completion.bash
 
+
+test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash

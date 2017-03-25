@@ -1,32 +1,32 @@
-set nocompatible
+filetype on
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
+
+" let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+
 Plugin 'bling/vim-airline'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'rust-lang/rust.vim'
+" Plugin 'fatih/vim-go'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()
+filetype plugin indent on
 
-" for airline
-set laststatus=2
-
+set nocompatible
 
 set backspace=indent,eol,start
 
 syntax on
-filetype plugin indent on
+
 set autoindent
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 set expandtab
 
-" set paste " do not set paste by default, breaks indentation and tab-complete
-set ruler
-
+set laststatus=2
 set hlsearch
 set incsearch
 set ignorecase smartcase
@@ -34,42 +34,65 @@ set ignorecase smartcase
 set mouse=a
 
 set nobackup
+set noswapfile
 
-set showcmd
-nnoremap ; :
 set wildmode=longest,list
+set wildmenu
 
-" Mastering Vim with Conway
+au FileType gitcommit set tw=55
 
-nmap <silent> <RIGHT>         :cnext<CR>
-nmap <silent> <UP>            :cnf<CR><C-G>
-nmap <silent> <LEFT>          :cprev<CR>
-nmap <silent> <DOWN>          :cpf<CR><C-G>
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
 
-"Only apply to .txt files...
-augroup HelpInTabs
-    autocmd!
-    autocmd BufEnter  *.txt   call HelpInNewTab()
-augroup END
+" show matching brackets
+set showmatch
 
-"Only apply to help files...
-function! HelpInNewTab ()
-    if &buftype == 'help' "&& g:help_in_tabs
-        "Convert the help window to a tab...
-        execute "normal \<C-W>T"
-    endif
-endfunction
+set noerrorbells
 
-if has ('gui_running')
+" Set extra options when running in GUI mode
+if has("gui_running")
     set guioptions-=T
     set guioptions+=e
     set t_Co=256
     set guitablabel=%M\ %t
     set background=dark
     colorscheme solarized
-    set guifont=Menlo:h13
+    set guifont:Menlo:h13
 endif
 
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+
+" overwrites pageup
+" map <C-b> :w<CR>:! nosetests<CR>
+
+" Clear highlighting until next search
+" :noh
+nnoremap <F3> :noh<CR>
+
+" Go back to previous buffer
+nnoremap <F2> :b#<CR>
+
+let mapleader=","
+nnoremap ; :
+
+" Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" Disable Ex mode
+map Q <Nop>
+
+noremap <s-u> <c-r>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MULTIPURPOSE TAB KEY
+" " Indent if we're at the beginning of a line. Else, do completion.
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! InsertTabWrapper()
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
@@ -81,15 +104,14 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
-" Go back to previous buffer
-nnoremap <F2> :b#<CR>
 
-" Clear highlighting until next search
-" :noh
-nnoremap <F3> :noh<CR>
+nmap <silent> <RIGHT>         :cnext<CR>
+nmap <silent> <UP>            :n<CR>
+nmap <silent> <LEFT>          :cprev<CR>
+nmap <silent> <DOWN>          :N<CR>
 
-" Move around splits with <c-hjkl>
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+"noremap <s-y> :w !pbcopy<CR>
+vmap <s-y> "+y
+
+" vim-go
+" let g:go_fmt_command = "goimports"

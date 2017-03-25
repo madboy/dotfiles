@@ -5,11 +5,8 @@ alias la='l -a'
 alias lla='ll -a'
 alias crontab='VIM_CRONTAB=true crontab'
 
-alias agu='sudo apt-get update'
-alias agi='sudo apt-get install'
-alias ags='apt-cache search'
-alias agr='sudo apt-get remove'
-alias agg='sudo apt-get upgrade'
-
-alias love="/Applications/love.app/Contents/MacOS/love"
-alias charm="/Applications/PyCharm.app/Contents/MacOS/pycharm"
+alias agu='sudo apt update'
+alias agi='sudo apt install'
+alias ags='apt search'
+alias agr='sudo apt remove'
+alias agg='sudo apt upgrade'

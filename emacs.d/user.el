@@ -98,3 +98,5 @@
 (evil-mode -1)
 
 (global-set-key (kbd "C-c e") 'evil-mode)
+
+(require 'deft)
