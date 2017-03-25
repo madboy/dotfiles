@@ -9,7 +9,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'bling/vim-airline'
-Plugin 'fatih/vim-go'
+" Plugin 'fatih/vim-go'
 
 call vundle#end()
 filetype plugin indent on
@@ -114,4 +114,4 @@ nmap <silent> <DOWN>          :N<CR>
 vmap <s-y> "+y
 
 " vim-go
-let g:go_fmt_command = "goimports"
+" let g:go_fmt_command = "goimports"
