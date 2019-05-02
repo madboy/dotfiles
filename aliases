@@ -10,3 +10,8 @@ alias agi='sudo apt install'
 alias ags='apt search'
 alias agr='sudo apt remove'
 alias agg='sudo apt upgrade'
+
+alias fahrenheit='degree_conversion fahrenheit'
+alias celsius='degree_conversion celsius'
+
+alias gpo='git push origin'
