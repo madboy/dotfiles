@@ -1,0 +1,35 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+x 1",
+        "command": "workbench.action.closeEditorsInOtherGroups"
+    },
+    {
+        "key": "ctrl+x 2",
+        "command": "workbench.action.splitEditor"
+    },
+    {
+        "key": "ctrl+\\",
+        "command": "-workbench.action.splitEditor"
+    },
+    {
+        "key": "ctrl+x 3",
+        "command": "workbench.action.splitEditorOrthogonal"
+    },
+    {
+        "key": "ctrl+k ctrl+\\",
+        "command": "-workbench.action.splitEditorOrthogonal"
+    },
+    {
+        "key": "ctrl+x o",
+        "command": "workbench.action.focusNextGroup"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "workbench.action.terminal.moveToLineEnd"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "workbench.action.terminal.moveToLineStart"
+    }
+]

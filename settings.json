@@ -1,9 +1,10 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "editor.wordWrap": "wordWrapColumn",      
-    "editor.wordWrapColumn": 80,
-    "editor.fontSize": 15,
-    "editor.fontFamily": "Fantasque Sans Mono, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "'Fantasque Sans Mono', Menlo, Monaco, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 18,
+    "go.useLanguageServer": true,
+    "editor.codeLens": false,
+    "window.zoomLevel": 0
     "workbench.colorTheme": "Zenburn",
     "files.insertFinalNewline": true
 }
